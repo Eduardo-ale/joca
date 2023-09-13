@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Despesas Mensais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+        input {
+            padding: 5px;
+            width: 150px;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Despesas Mensais</h1>
+    <form id="expenseForm">
+        <label for="rent">Aluguel:</label>
+        <input type="number" id="rent" name="rent"><br>
+
+        <label for="utilities">Contas de Utilidades:</label>
+        <input type="number" id="utilities" name="utilities"><br>
+
+        <label for="groceries">Compras de Supermercado:</label>
+        <input type="number" id="groceries" name="groceries"><br>
+
+        <label for="other">Outras Despesas:</label>
+        <input type="number" id="other" name="other"><br>
+
+        <input type="button" value="Calcular" onclick="calculateTotal()">
+    </form>
+    
+    <p id="result"></p>
+
+    <script>
+        function calculateTotal() {
+            const rent = parseFloat(document.getElementById('rent').value) || 0;
+            const utilities = parseFloat(document.getElementById('utilities').value) || 0;
+            const groceries = parseFloat(document.getElementById('groceries').value) || 0;
+            const other = parseFloat(document.getElementById('other').value) || 0;
+
+            const total = rent + utilities + groceries + other;
+
+            document.getElementById('result').innerHTML = `Total de Despesas Mensais: R$ ${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
